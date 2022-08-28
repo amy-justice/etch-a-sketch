@@ -11,21 +11,32 @@
 </head>
 <body>
     <h1>Etch a Sketch</h1>
-    <div class="slidecontainer">
-        <input type="range" min="10" max="40" value="16" step="1" class="slider" id="change-grid">
-        <div id="grid-size-text"></div>
-    </div>
-    <button id="reset-btn">Clear</button>
-    <div id="canvas-container">
-        <div class="canvas-row">
 
+    <div class="main-container">
+        <div class="tools-container">
+            <input type="color" id="line-color" value="#000000">
+    
+            <button id="rainbow-button">Rainbow</button>
+            <button id="eraser-button">Eraser</button>
+    
+            <div class="slidecontainer">
+                <div class="slide-title">Grid size</div>
+                <input type="range" min="10" max="40" value="16" step="1" class="slider" id="change-grid">
+                <div id="grid-size-text"></div>
+            </div>
+            <button id="reset-btn">Clear</button>
         </div>
-    </div>
-    <div class="tools-container">
-        <input type="color" id="line-color" value="#000000">
 
-        <button id="rainbow-button">Rainbow</button>
-        <button id="eraser-button">Eraser</button>
+        <div id="canvas-container">
+            <div class="canvas-row">
+    
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made by <a href="">Amy</a> 🌸
     </div>
 </body>
 </html>
