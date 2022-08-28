@@ -11,10 +11,21 @@
 </head>
 <body>
     <h1>Etch a Sketch</h1>
+    <div class="slidecontainer">
+        <input type="range" min="10" max="40" value="16" step="1" class="slider" id="change-grid">
+        <div id="grid-size-text"></div>
+    </div>
+    <button id="reset-btn">Clear</button>
     <div id="canvas-container">
         <div class="canvas-row">
 
         </div>
+    </div>
+    <div class="tools-container">
+        <input type="color" id="line-color" value="#000000">
+
+        <button id="rainbow-button">Rainbow</button>
+        <button id="eraser-button">Eraser</button>
     </div>
 </body>
 </html>
