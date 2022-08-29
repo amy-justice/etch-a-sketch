@@ -4,12 +4,16 @@ let eraser = false;
 
 // change line color
 const colorPicker = document.getElementById('line-color');
-colorPicker.value = '#0000000';
+colorPicker.value = '#222222';
 let lineColor = colorPicker.value;
 colorPicker.addEventListener('change', (e) => {
     rainbow = false;
     eraser = false;
     lineColor = e.target.value;
+});
+colorPicker.addEventListener('click', () => {
+    rainbow = false;
+    eraser = false;
 })
 
 // rainbow mode
@@ -22,7 +26,7 @@ function rainbowMode() {
     return color;
 }
 
-function fillBox(e) {
+function fillBox() {
     if (rainbow) {
         this.style.backgroundColor = rainbowMode();
     } else if (eraser) {
@@ -34,6 +38,15 @@ function fillBox(e) {
 
 function startDrawing(e) {
     e.preventDefault();
+    // start on first square
+    if (rainbow) {
+        e.target.style.backgroundColor = rainbowMode();
+    } else if (eraser) {
+        e.target.style.backgroundColor = 'rgb(240, 240, 240)';
+    } else {
+        e.target.style.backgroundColor = lineColor;
+    }
+    // continue drawing
     allSquares = document.querySelectorAll('.grid-square');
     allSquares.forEach((square) => {
         square.addEventListener('mouseover', fillBox)
@@ -58,8 +71,8 @@ function resetCanvas() {
 function buildCanvas(gridSize) {
     for (i = 0; i < gridSize * gridSize; i++) {
         if (i % gridSize == 0) {
-            //create new row
-            canvasRow = document.createElement('canvas-row');
+            // create new row
+            canvasRow = document.createElement('div');
             canvasRow.classList.add('canvas-row');
             canvasContainer.appendChild(canvasRow);
         }
